@@ -1,0 +1,244 @@
+// Typography
+$font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, Helvetica, Arial, sans-serif;
+$font-size-base: 16px;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line heights
+$line-height-tight: 1.2;
+$line-height-base: 1.5;
+$line-height-loose: 1.8;
+
+// Spacing scale
+$spacing-xxxs: 2px;
+$spacing-xxs: 4px;
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+$spacing-xxxl: 64px;
+
+// Breakpoints
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// Z-index levels
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Border radiuses
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-pill: 50px;
+$border-radius-circle: 50%;
+
+// Shadows
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+
+// Custom theme primary colors (will be used to generate custom Ionic theme)
+$primary-50: #f0f7ff;
+$primary-100: #e0efff;
+$primary-200: #c0dfff;
+$primary-300: #a1cfff;
+$primary-400: #81bfff;
+$primary-500: #3a8afc;
+$primary-600: #2663f0;
+$primary-700: #1e4cda;
+$primary-800: #1e3fb1;
+$primary-900: #1e388a;
+
+// Custom theme secondary colors
+$secondary-50: #f5f9ff;
+$secondary-100: #ebf3ff;
+$secondary-200: #d6e7ff;
+$secondary-300: #b3d1ff;
+$secondary-400: #80adfc;
+$secondary-500: #5c8df7;
+$secondary-600: #4a75ec;
+$secondary-700: #3955c8;
+$secondary-800: #2f429c;
+$secondary-900: #283a7d;
+
+// Success colors
+$success-50: #ecfdf5;
+$success-100: #d1fae5;
+$success-200: #a7f3d0;
+$success-300: #6ee7b7;
+$success-400: #34d399;
+$success-500: #10b981;
+$success-600: #059669;
+$success-700: #047857;
+$success-800: #065f46;
+$success-900: #064e3b;
+
+// Warning colors
+$warning-50: #fffbeb;
+$warning-100: #fef3c7;
+$warning-200: #fde68a;
+$warning-300: #fcd34d;
+$warning-400: #fbbf24;
+$warning-500: #f59e0b;
+$warning-600: #d97706;
+$warning-700: #b45309;
+$warning-800: #92400e;
+$warning-900: #78350f;
+
+// Danger colors
+$danger-50: #fef2f2;
+$danger-100: #fee2e2;
+$danger-200: #fecaca;
+$danger-300: #fca5a5;
+$danger-400: #f87171;
+$danger-500: #ef4444;
+$danger-600: #dc2626;
+$danger-700: #b91c1c;
+$danger-800: #991b1b;
+$danger-900: #7f1d1d;
+
+// Neutral/Gray colors
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-800: #1f2937;
+$gray-900: #111827;
+
+// Animation durations
+$animation-duration-fast: 0.2s;
+$animation-duration-normal: 0.3s;
+$animation-duration-slow: 0.5s;
+
+// Animation easings
+$ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+$ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// Miscellaneous
+$header-height: 56px;
+$sidebar-width: 280px;
+$max-content-width: 1200px;
+$input-height: 44px;
+$btn-height: 44px;
+$border-width: 1px;
+$border-color: $gray-200;
+
+// Customizing Ionic variables
+:root {
+  // Core color palette
+  --ion-color-primary: #{$primary-500};
+  --ion-color-primary-rgb: #{hexToRGB($primary-500)};
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #{darken($primary-500, 10%)};
+  --ion-color-primary-tint: #{lighten($primary-500, 10%)};
+
+  --ion-color-secondary: #{$secondary-500};
+  --ion-color-secondary-rgb: #{hexToRGB($secondary-500)};
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #{darken($secondary-500, 10%)};
+  --ion-color-secondary-tint: #{lighten($secondary-500, 10%)};
+
+  --ion-color-tertiary: #5260ff;
+  --ion-color-tertiary-rgb: 82, 96, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #4854e0;
+  --ion-color-tertiary-tint: #6370ff;
+
+  --ion-color-success: #{$success-500};
+  --ion-color-success-rgb: #{hexToRGB($success-500)};
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #{darken($success-500, 10%)};
+  --ion-color-success-tint: #{lighten($success-500, 10%)};
+
+  --ion-color-warning: #{$warning-500};
+  --ion-color-warning-rgb: #{hexToRGB($warning-500)};
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #{darken($warning-500, 10%)};
+  --ion-color-warning-tint: #{lighten($warning-500, 10%)};
+
+  --ion-color-danger: #{$danger-500};
+  --ion-color-danger-rgb: #{hexToRGB($danger-500)};
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #{darken($danger-500, 10%)};
+  --ion-color-danger-tint: #{lighten($danger-500, 10%)};
+
+  --ion-color-medium: #{$gray-500};
+  --ion-color-medium-rgb: #{hexToRGB($gray-500)};
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #{darken($gray-500, 10%)};
+  --ion-color-medium-tint: #{lighten($gray-500, 10%)};
+
+  --ion-color-light: #{$gray-100};
+  --ion-color-light-rgb: #{hexToRGB($gray-100)};
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #{darken($gray-100, 10%)};
+  --ion-color-light-tint: #{lighten($gray-100, 10%)};
+
+  --ion-color-dark: #{$gray-900};
+  --ion-color-dark-rgb: #{hexToRGB($gray-900)};
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #{darken($gray-900, 10%)};
+  --ion-color-dark-tint: #{lighten($gray-900, 10%)};
+
+  // Customize typography
+  --ion-font-family: #{$font-family-base};
+
+  // UI elements
+  --ion-item-border-color: #{$border-color};
+  --ion-item-background: transparent;
+  --ion-toolbar-background: #{$gray-50};
+  --ion-tab-bar-background: #{$gray-50};
+
+  // Form elements
+  --ion-border-color: #{$gray-200};
+  --ion-input-border-radius: #{$border-radius-md};
+  --ion-input-background: #{$gray-50};
+
+  // Misc
+  --ion-toolbar-height: #{$header-height};
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 20px;
+}
+
+// Helper function to convert hex to RGB
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}

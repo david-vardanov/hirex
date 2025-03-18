@@ -1,0 +1,734 @@
+// Import variables first to make them available in other files
+@import "variables";
+@import "animations";
+
+// Import Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* --------- BASE STYLES --------- */
+
+// Reset and base styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-base;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  margin: 0;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  color: $gray-900;
+  background-color: $gray-50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--ion-color-primary);
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: var(--ion-color-primary-shade);
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------- CUSTOM IONIC OVERRIDES --------- */
+
+// Customize Ionic components
+ion-content {
+  --background: #{$gray-50};
+}
+
+ion-item {
+  --padding-start: #{$spacing-md};
+  --padding-end: #{$spacing-md};
+  --padding-top: #{$spacing-sm};
+  --padding-bottom: #{$spacing-sm};
+  --border-color: #{$gray-200};
+  --highlight-color-focused: var(--ion-color-primary);
+  --highlight-height: 2px;
+}
+
+ion-button {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: $font-weight-medium;
+  --border-radius: #{$border-radius-md};
+  --box-shadow: none;
+}
+
+ion-input,
+ion-textarea,
+ion-select {
+  --padding-start: #{$spacing-md};
+  --padding-end: #{$spacing-md};
+  --padding-top: #{$spacing-md};
+  --padding-bottom: #{$spacing-md};
+  --placeholder-color: #{$gray-500};
+  --border-radius: #{$border-radius-md};
+  --highlight-color-focused: var(--ion-color-primary);
+  --highlight-height: 2px;
+  font-family: $font-family-base;
+}
+
+ion-card {
+  box-shadow: $shadow-md;
+  border-radius: $border-radius-lg;
+  --background: #ffffff;
+  margin: $spacing-md;
+}
+
+ion-toolbar {
+  --padding-start: #{$spacing-md};
+  --padding-end: #{$spacing-md};
+  --padding-top: #{$spacing-sm};
+  --padding-bottom: #{$spacing-sm};
+  --min-height: #{$header-height};
+}
+
+ion-tab-button {
+  --padding-top: #{$spacing-xs};
+  --padding-bottom: #{$spacing-xs};
+}
+
+ion-badge {
+  --padding-start: #{$spacing-xs};
+  --padding-end: #{$spacing-xs};
+  --padding-top: 2px;
+  --padding-bottom: 2px;
+  font-weight: $font-weight-medium;
+  border-radius: $border-radius-sm;
+}
+
+ion-toast {
+  --border-radius: #{$border-radius-md};
+  --box-shadow: #{$shadow-lg};
+  --padding-start: #{$spacing-md};
+  --padding-end: #{$spacing-md};
+  --padding-top: #{$spacing-sm};
+  --padding-bottom: #{$spacing-sm};
+  font-family: $font-family-base;
+}
+
+ion-alert {
+  --backdrop-opacity: 0.6;
+  font-family: $font-family-base;
+}
+
+ion-modal {
+  --backdrop-opacity: 0.6;
+  --border-radius: #{$border-radius-lg};
+  --box-shadow: #{$shadow-xl};
+}
+
+ion-list {
+  padding-top: $spacing-xs;
+  padding-bottom: $spacing-xs;
+}
+
+/* --------- UTILITY CLASSES --------- */
+
+// Spacing utilities
+@each $name,
+  $size
+    in (
+      xxxs: $spacing-xxxs,
+      xxs: $spacing-xxs,
+      xs: $spacing-xs,
+      sm: $spacing-sm,
+      md: $spacing-md,
+      lg: $spacing-lg,
+      xl: $spacing-xl,
+      xxl: $spacing-xxl,
+      xxxl: $spacing-xxxl
+    )
+{
+  .m-#{$name} {
+    margin: $size !important;
+  }
+  .mt-#{$name} {
+    margin-top: $size !important;
+  }
+  .mr-#{$name} {
+    margin-right: $size !important;
+  }
+  .mb-#{$name} {
+    margin-bottom: $size !important;
+  }
+  .ml-#{$name} {
+    margin-left: $size !important;
+  }
+  .mx-#{$name} {
+    margin-left: $size !important;
+    margin-right: $size !important;
+  }
+  .my-#{$name} {
+    margin-top: $size !important;
+    margin-bottom: $size !important;
+  }
+
+  .p-#{$name} {
+    padding: $size !important;
+  }
+  .pt-#{$name} {
+    padding-top: $size !important;
+  }
+  .pr-#{$name} {
+    padding-right: $size !important;
+  }
+  .pb-#{$name} {
+    padding-bottom: $size !important;
+  }
+  .pl-#{$name} {
+    padding-left: $size !important;
+  }
+  .px-#{$name} {
+    padding-left: $size !important;
+    padding-right: $size !important;
+  }
+  .py-#{$name} {
+    padding-top: $size !important;
+    padding-bottom: $size !important;
+  }
+}
+
+// Text utilities
+.text-center {
+  text-align: center !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+
+.text-bold {
+  font-weight: $font-weight-bold !important;
+}
+.text-semibold {
+  font-weight: $font-weight-semibold !important;
+}
+.text-medium {
+  font-weight: $font-weight-medium !important;
+}
+.text-regular {
+  font-weight: $font-weight-regular !important;
+}
+.text-light {
+  font-weight: $font-weight-light !important;
+}
+
+.text-xs {
+  font-size: 0.75rem !important;
+}
+.text-sm {
+  font-size: 0.875rem !important;
+}
+.text-md {
+  font-size: 1rem !important;
+}
+.text-lg {
+  font-size: 1.125rem !important;
+}
+.text-xl {
+  font-size: 1.25rem !important;
+}
+.text-2xl {
+  font-size: 1.5rem !important;
+}
+.text-3xl {
+  font-size: 1.875rem !important;
+}
+.text-4xl {
+  font-size: 2.25rem !important;
+}
+
+.text-primary {
+  color: var(--ion-color-primary) !important;
+}
+.text-secondary {
+  color: var(--ion-color-secondary) !important;
+}
+.text-success {
+  color: var(--ion-color-success) !important;
+}
+.text-warning {
+  color: var(--ion-color-warning) !important;
+}
+.text-danger {
+  color: var(--ion-color-danger) !important;
+}
+.text-dark {
+  color: var(--ion-color-dark) !important;
+}
+.text-medium-gray {
+  color: var(--ion-color-medium) !important;
+}
+.text-light-gray {
+  color: var(--ion-color-light) !important;
+}
+
+// Display utilities
+.d-block {
+  display: block !important;
+}
+.d-inline {
+  display: inline !important;
+}
+.d-inline-block {
+  display: inline-block !important;
+}
+.d-flex {
+  display: flex !important;
+}
+.d-inline-flex {
+  display: inline-flex !important;
+}
+.d-grid {
+  display: grid !important;
+}
+.d-none {
+  display: none !important;
+}
+
+// Flex utilities
+.flex-row {
+  flex-direction: row !important;
+}
+.flex-column {
+  flex-direction: column !important;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+.flex-column-reverse {
+  flex-direction: column-reverse !important;
+}
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+.flex-grow-0 {
+  flex-grow: 0 !important;
+}
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
+.flex-shrink-0 {
+  flex-shrink: 0 !important;
+}
+.flex-shrink-1 {
+  flex-shrink: 1 !important;
+}
+
+.justify-content-start {
+  justify-content: flex-start !important;
+}
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+.justify-content-between {
+  justify-content: space-between !important;
+}
+.justify-content-around {
+  justify-content: space-around !important;
+}
+.justify-content-evenly {
+  justify-content: space-evenly !important;
+}
+
+.align-items-start {
+  align-items: flex-start !important;
+}
+.align-items-end {
+  align-items: flex-end !important;
+}
+.align-items-center {
+  align-items: center !important;
+}
+.align-items-baseline {
+  align-items: baseline !important;
+}
+.align-items-stretch {
+  align-items: stretch !important;
+}
+
+.align-self-start {
+  align-self: flex-start !important;
+}
+.align-self-end {
+  align-self: flex-end !important;
+}
+.align-self-center {
+  align-self: center !important;
+}
+.align-self-baseline {
+  align-self: baseline !important;
+}
+.align-self-stretch {
+  align-self: stretch !important;
+}
+
+// Border utilities
+.border {
+  border: $border-width solid $border-color !important;
+}
+.border-top {
+  border-top: $border-width solid $border-color !important;
+}
+.border-right {
+  border-right: $border-width solid $border-color !important;
+}
+.border-bottom {
+  border-bottom: $border-width solid $border-color !important;
+}
+.border-left {
+  border-left: $border-width solid $border-color !important;
+}
+.border-0 {
+  border: 0 !important;
+}
+
+.rounded-sm {
+  border-radius: $border-radius-sm !important;
+}
+.rounded-md {
+  border-radius: $border-radius-md !important;
+}
+.rounded-lg {
+  border-radius: $border-radius-lg !important;
+}
+.rounded-xl {
+  border-radius: $border-radius-xl !important;
+}
+.rounded-pill {
+  border-radius: $border-radius-pill !important;
+}
+.rounded-circle {
+  border-radius: $border-radius-circle !important;
+}
+.rounded-0 {
+  border-radius: 0 !important;
+}
+
+// Shadow utilities
+.shadow-none {
+  box-shadow: none !important;
+}
+.shadow-sm {
+  box-shadow: $shadow-sm !important;
+}
+.shadow-md {
+  box-shadow: $shadow-md !important;
+}
+.shadow-lg {
+  box-shadow: $shadow-lg !important;
+}
+.shadow-xl {
+  box-shadow: $shadow-xl !important;
+}
+
+// Position utilities
+.position-relative {
+  position: relative !important;
+}
+.position-absolute {
+  position: absolute !important;
+}
+.position-fixed {
+  position: fixed !important;
+}
+.position-sticky {
+  position: sticky !important;
+}
+
+.top-0 {
+  top: 0 !important;
+}
+.right-0 {
+  right: 0 !important;
+}
+.bottom-0 {
+  bottom: 0 !important;
+}
+.left-0 {
+  left: 0 !important;
+}
+
+// Width & height utilities
+.w-100 {
+  width: 100% !important;
+}
+.w-75 {
+  width: 75% !important;
+}
+.w-50 {
+  width: 50% !important;
+}
+.w-25 {
+  width: 25% !important;
+}
+.w-auto {
+  width: auto !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+.h-75 {
+  height: 75% !important;
+}
+.h-50 {
+  height: 50% !important;
+}
+.h-25 {
+  height: 25% !important;
+}
+.h-auto {
+  height: auto !important;
+}
+
+.min-w-0 {
+  min-width: 0 !important;
+}
+.min-h-0 {
+  min-height: 0 !important;
+}
+
+// Background utilities
+.bg-primary {
+  background-color: var(--ion-color-primary) !important;
+}
+.bg-secondary {
+  background-color: var(--ion-color-secondary) !important;
+}
+.bg-success {
+  background-color: var(--ion-color-success) !important;
+}
+.bg-warning {
+  background-color: var(--ion-color-warning) !important;
+}
+.bg-danger {
+  background-color: var(--ion-color-danger) !important;
+}
+.bg-light {
+  background-color: var(--ion-color-light) !important;
+}
+.bg-dark {
+  background-color: var(--ion-color-dark) !important;
+}
+.bg-white {
+  background-color: #ffffff !important;
+}
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+// Overflow utilities
+.overflow-auto {
+  overflow: auto !important;
+}
+.overflow-hidden {
+  overflow: hidden !important;
+}
+.overflow-visible {
+  overflow: visible !important;
+}
+.overflow-scroll {
+  overflow: scroll !important;
+}
+.overflow-x-auto {
+  overflow-x: auto !important;
+}
+.overflow-y-auto {
+  overflow-y: auto !important;
+}
+.overflow-x-hidden {
+  overflow-x: hidden !important;
+}
+.overflow-y-hidden {
+  overflow-y: hidden !important;
+}
+
+// Visibility utilities
+.visible {
+  visibility: visible !important;
+}
+.invisible {
+  visibility: hidden !important;
+}
+
+// Z-index utilities
+.z-0 {
+  z-index: 0 !important;
+}
+.z-10 {
+  z-index: 10 !important;
+}
+.z-20 {
+  z-index: 20 !important;
+}
+.z-30 {
+  z-index: 30 !important;
+}
+.z-40 {
+  z-index: 40 !important;
+}
+.z-50 {
+  z-index: 50 !important;
+}
+.z-auto {
+  z-index: auto !important;
+}
+
+// App-specific utilities
+.content-container {
+  max-width: $max-content-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+  width: 100%;
+}
+
+.page-container {
+  padding: $spacing-md;
+  height: 100%;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --------- RESPONSIVE UTILITIES --------- */
+
+// Responsive breakpoint utilities
+@media (min-width: $breakpoint-sm) {
+  .d-sm-none {
+    display: none !important;
+  }
+  .d-sm-block {
+    display: block !important;
+  }
+  .d-sm-flex {
+    display: flex !important;
+  }
+  .w-sm-100 {
+    width: 100% !important;
+  }
+  .w-sm-auto {
+    width: auto !important;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .d-md-none {
+    display: none !important;
+  }
+  .d-md-block {
+    display: block !important;
+  }
+  .d-md-flex {
+    display: flex !important;
+  }
+  .w-md-100 {
+    width: 100% !important;
+  }
+  .w-md-auto {
+    width: auto !important;
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .d-lg-none {
+    display: none !important;
+  }
+  .d-lg-block {
+    display: block !important;
+  }
+  .d-lg-flex {
+    display: flex !important;
+  }
+  .w-lg-100 {
+    width: 100% !important;
+  }
+  .w-lg-auto {
+    width: auto !important;
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .d-xl-none {
+    display: none !important;
+  }
+  .d-xl-block {
+    display: block !important;
+  }
+  .d-xl-flex {
+    display: flex !important;
+  }
+  .w-xl-100 {
+    width: 100% !important;
+  }
+  .w-xl-auto {
+    width: auto !important;
+  }
+}
+
+/* --------- PRINT STYLES --------- */
+
+@media print {
+  .d-print-none {
+    display: none !important;
+  }
+  .d-print-block {
+    display: block !important;
+  }
+  .d-print-flex {
+    display: flex !important;
+  }
+}
